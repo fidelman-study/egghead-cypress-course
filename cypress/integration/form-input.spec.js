@@ -1,11 +1,9 @@
 describe('Form Input', () => {
-  it('Visit the app', () => {
+  beforeEach(() => {
     cy.visit('/')
-    cy.focused().should('have.class', 'new-todo')
   })
 
-  it.only('Accepts input', () => {
-    cy.visit('/')
+  it('Accepts input', () => {
     cy
       .get('.new-todo')
       .type('New Todo')
