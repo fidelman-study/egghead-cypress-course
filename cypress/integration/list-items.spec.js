@@ -11,16 +11,19 @@ describe('List Item Behavior', () => {
 
     cy
       .get('.todo-list li')
+      .as('list')
+
+    cy
+      .get('@list')
       .first()
       .find('.destroy')
       .invoke('show')
       .click()
-      // .click({ force: true })
 
     cy.wait('@delete')
 
     cy
-      .get('.todo-list li')
+      .get('@list')
       .should('have.length', 3)
   })
 })
